@@ -1,17 +1,23 @@
-
+import { Provider } from 'react-redux'
+///engine
+import { store } from '../../engine/config/store'
 
 import '../../App.css'
+import { Counter,ButtonInc, ButtonDec} from './Counter'
+
 
 function App() {
-  
+
   return (
-    <div className="App">
-      <p>
-        Clicked: <span id="value">0</span>
-        <button id="increment">+</button>
-        <button id="decrement">-</button>
-      </p>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <p>
+          Clicked: <Counter/>
+          <ButtonInc/>
+          <ButtonDec/>
+        </p>
+      </div>
+    </Provider>
   )
 }
 

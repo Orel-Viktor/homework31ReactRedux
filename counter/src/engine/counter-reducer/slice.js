@@ -14,5 +14,10 @@ export const counterSlice = createSlice({
         }
     }
 })
-console.log(counterSlice)
+
 export const { increment, decrement } = counterSlice.actions
+export const counter = counterSlice.reducer
+
+export const counterSelector = {
+    value: (state)=> state.counter.value
+}

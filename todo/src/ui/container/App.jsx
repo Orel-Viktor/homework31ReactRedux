@@ -3,6 +3,7 @@ import { AddTodo } from '../components/AddTodo'
 import { TodosList } from '../components/TodosList'
 import '../../styles/App.css'
 import { store } from '../../engine/config/store'
+import { TodoCounter } from '../components/TodosCounter'
 
 function App() {
     return (
@@ -15,7 +16,9 @@ function App() {
                 <br />
                 <hr />
                 <TodosList />
+                <div><TodoCounter/></div>
             </div>
+            
         </Provider>
     )
 }

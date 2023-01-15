@@ -18,7 +18,6 @@ const todos = createSlice({
       state.loading = payload;
     },
   },
-  
 });
 
 export const { setItems, setLoading } = todos.actions;

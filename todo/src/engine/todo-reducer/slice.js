@@ -20,7 +20,6 @@ const todos = createSlice({
   },
   
 });
-// console.log (todos)
 
 export const { setItems, setLoading } = todos.actions;
 export const todoReducer = todos.reducer;

@@ -11,7 +11,7 @@ const todos = createSlice({
         setItems: (state, action) => {
             const { payload } = action
             state.items = payload
-            state.todosValue = state.todosValue + 1
+            state.todosValue +=1
         },
         setLoading: (state, action) => {
             const { payload } = action

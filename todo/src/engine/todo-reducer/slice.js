@@ -6,6 +6,7 @@ const todos = createSlice({
     items: [],
     loading: true,
     todosValue: 0,
+    // disabledButton: true,
   },
   reducers: {
     setItems: (state, action) => {
@@ -17,6 +18,9 @@ const todos = createSlice({
       const { payload } = action;
       state.loading = payload;
     },
+    // setDisabledButton: (state) => {
+    //   state.disabledButton = false
+    // }
   },
 });
 

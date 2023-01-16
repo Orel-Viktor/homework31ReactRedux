@@ -2,15 +2,14 @@
 import { useSelector, useDispatch } from "react-redux"
 import { todosSelectors } from "../../engine/todo-reducer/selectors"
 import { setItems } from "../../engine/todo-reducer/slice"
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 
 export function AddTodo() {
-    // const [disabled, setDisabled] = useState(true);
-    // const [inputValue, setValue] = useState("");
-    const inputTodo = useRef(null);
+    const [disabled, setDisabled] = useState(true);
+    const [inputValue, setValue] = useState("");
 
-    // const hadleInput = (e) => setValue(e.target.value);
+    const hadleInput = (e) => setValue(e.target.value);
 
     const dispatch = useDispatch()
     const todos = useSelector(todosSelectors.items)
@@ -18,31 +17,30 @@ export function AddTodo() {
         event.preventDefault()
         dispatch(setItems([...todos, {
             id: Math.floor(Math.random() * 1000),
-            text:event.target[0].value,
+            text:inputValue,
             checked: false,
         }],
             {
-                delayMS: 3000
+                delayMS: 5000
             }
         ))
-        event.target[0].value =""
-        // setValue("")
+        
+        setValue("")
     }
 
 
-    // useEffect(() => {
-    //     inputValue ? setDisabled(false) : setDisabled(true)
-    // })
+    useEffect(() => {
+        inputValue ? setDisabled(false) : setDisabled(true)
+    })
 
     return (
         <form action="#" className="form js--form" onSubmit={addItem}>
             <input
-                // value={inputValue}
-                // onChange={hadleInput}
-                ref={inputTodo}
+                value={inputValue}
+                onChange={hadleInput}
                 type="text"
                 className="form__input js--form__input" />
-            <button  className="form__button" type="submit" >Добавить</button>
+            <button disabled={disabled} className="form__button" type="submit" >Добавить</button>
         </form>
     )
 }

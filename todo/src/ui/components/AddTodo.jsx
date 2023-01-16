@@ -6,11 +6,11 @@ import React, { useState, useRef, useEffect } from "react";
 
 
 export function AddTodo() {
-    const [disabled, setDisabled] = useState(true);
-    const [inputValue, setValue] = useState("");
+    // const [disabled, setDisabled] = useState(true);
+    // const [inputValue, setValue] = useState("");
     const inputTodo = useRef(null);
 
-    const hadleInput = (e) => setValue(e.target.value);
+    // const hadleInput = (e) => setValue(e.target.value);
 
     const dispatch = useDispatch()
     const todos = useSelector(todosSelectors.items)
@@ -18,26 +18,31 @@ export function AddTodo() {
         event.preventDefault()
         dispatch(setItems([...todos, {
             id: Math.floor(Math.random() * 1000),
-            text: inputTodo.current.value,
+            text:event.target[0].value,
             checked: false,
-        }]))
-        setValue("")
+        }],
+            {
+                delayMS: 3000
+            }
+        ))
+        event.target[0].value =""
+        // setValue("")
     }
 
 
-    useEffect(() => {
-        inputValue ? setDisabled(false) : setDisabled(true)
-    })
+    // useEffect(() => {
+    //     inputValue ? setDisabled(false) : setDisabled(true)
+    // })
 
     return (
         <form action="#" className="form js--form" onSubmit={addItem}>
             <input
-                value={inputValue}
-                onChange={hadleInput}
+                // value={inputValue}
+                // onChange={hadleInput}
                 ref={inputTodo}
                 type="text"
                 className="form__input js--form__input" />
-            <button disabled={disabled} className="form__button" type="submit" >Добавить</button>
+            <button  className="form__button" type="submit" >Добавить</button>
         </form>
     )
 }

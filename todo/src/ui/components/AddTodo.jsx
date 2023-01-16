@@ -9,6 +9,7 @@ export function AddTodo() {
     const [disabled, setDisabled] = useState(true);
     const [inputValue, setValue] = useState("");
 
+
     const hadleInput = (e) => setValue(e.target.value);
 
     const dispatch = useDispatch()
@@ -17,14 +18,13 @@ export function AddTodo() {
         event.preventDefault()
         dispatch(setItems([...todos, {
             id: Math.floor(Math.random() * 1000),
-            text:inputValue,
+            text: inputValue,
             checked: false,
         }],
             {
-                delayMS: 5000
+                delayMS: 1
             }
         ))
-        
         setValue("")
     }
 
@@ -32,12 +32,12 @@ export function AddTodo() {
     useEffect(() => {
         inputValue ? setDisabled(false) : setDisabled(true)
     })
-
     return (
         <form action="#" className="form js--form" onSubmit={addItem}>
             <input
                 value={inputValue}
                 onChange={hadleInput}
+
                 type="text"
                 className="form__input js--form__input" />
             <button disabled={disabled} className="form__button" type="submit" >Добавить</button>

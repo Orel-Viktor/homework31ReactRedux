@@ -4,6 +4,7 @@ import { TodosList } from '../components/TodosList'
 import '../../styles/App.css'
 import { store } from '../../engine/config/store'
 import { TodoCounter } from '../components/TodosCounter'
+import{RemoveItemsButton} from '../components/RemoveItemsButton'
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                 <hr />
                 <TodosList />
                 <div><TodoCounter/></div>
+                <div><RemoveItemsButton/></div>
             </div>
             
         </Provider>

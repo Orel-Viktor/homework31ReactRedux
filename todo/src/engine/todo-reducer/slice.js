@@ -14,6 +14,7 @@ const todos = createSlice({
         const { payload } = action;
         state.items = payload;
         state.todosValue = action.payload.length;
+        console.log(state.items)
       }
     }
     ,

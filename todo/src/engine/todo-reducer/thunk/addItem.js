@@ -2,7 +2,8 @@ import { setItems } from "../slice";
 
 
 
-export const addItem = (event,inputValue,setValue)=>(dispatch,state)=>{
+
+export const addItem = (event, inputValue,setValue)=>(dispatch,state)=>{
         event.preventDefault()
         const {todos} = state()
         dispatch(setItems([...todos.items, {

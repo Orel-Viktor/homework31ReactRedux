@@ -1,6 +1,4 @@
-
-import { useSelector, useDispatch } from "react-redux"
-import { todosSelectors } from "../../engine/todo-reducer/selectors"
+import { useDispatch } from "react-redux"
 import React, { useState, useEffect } from "react";
 import { Button } from "./Button";
 import { addItem } from "../../engine/todo-reducer/thunk/addItem";
@@ -11,7 +9,7 @@ export function AddTodo() {
     const [inputValue, setValue] = useState("");
     const hadleInput = (e) => setValue(e.target.value);
     const dispatch = useDispatch()
-    const todos = useSelector(todosSelectors.items)
+
 
     const onSubmit = (event) => {
         dispatch(addItem(event, inputValue, setValue))

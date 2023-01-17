@@ -5,7 +5,6 @@ const todos = createSlice({
   initialState: {
     items: [],
     loading: true,
-    todosValue: 0,
   },
   reducers: {
     setItems: {
@@ -13,7 +12,6 @@ const todos = createSlice({
       reducer: (state, action) => {
         const { payload } = action;
         state.items = payload;
-        state.todosValue = action.payload.length;
       }
     }
     ,

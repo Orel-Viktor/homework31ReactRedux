@@ -6,5 +6,4 @@ export const delay = (store) => (dispatch) => (action) => {
     } else {
         dispatch(action)
     }
-    console.log(action)
 }

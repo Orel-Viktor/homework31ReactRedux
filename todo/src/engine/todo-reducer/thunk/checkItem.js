@@ -2,7 +2,9 @@ import { setItems } from "../slice"
 
 
 
-export const checkItem = (todoId) => (dispatch, state) => {
+export const checkItem = (currentItem) => (dispatch, state) => {
     const { todos } = state()
+   
+    dispatch(setItems([todos.items].map()))
     
 }

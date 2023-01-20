@@ -12,7 +12,6 @@ const todos = createSlice({
       reducer: (state, action) => {
         const { payload } = action;
         state.items = payload;
-        console.log(state.items)
       }
     }
     ,

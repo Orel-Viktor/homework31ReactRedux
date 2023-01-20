@@ -4,6 +4,7 @@ import { Button } from "./Button";
 import { addItem } from "../../engine/todo-reducer/thunk/addItem";
 
 
+
 export function AddTodo() {
     const [disabled, setDisabled] = useState(true);
     const [inputValue, setValue] = useState("");
@@ -14,9 +15,11 @@ export function AddTodo() {
     const onSubmit = (event) => {
         dispatch(addItem(event, inputValue, setValue))
     }
+   
 
     useEffect(() => {
-        inputValue ? setDisabled(false) : setDisabled(true)
+        setDisabled(!inputValue),
+            [inputValue]
     })
 
     return (
